@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/session.ts","./src/db/migrate.ts","./src/db/pool.ts","./src/routes/auth.ts","./src/routes/characters.ts"],"version":"5.9.3"}
