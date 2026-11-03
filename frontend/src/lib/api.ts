@@ -1,6 +1,9 @@
 import type { Character } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:3001';
+// Dev: talk to the local backend directly. Production: same-origin relative
+// URLs, proxied to the backend by Vercel (see vercel.json) so the session
+// cookie stays first-party.
+const API_BASE = import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? 'http://localhost:3001' : '');
 
 type CharacterInput = Omit<Character, 'id' | 'ownerId' | 'updatedAt'>;
 

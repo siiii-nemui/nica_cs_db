@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: nica-cs-db-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      # Set in the Render dashboard (Supabase Session pooler connection string).
+      - key: DATABASE_URL
+        sync: false
+      # The Vercel frontend URL, e.g. https://nica-cs-db.vercel.app
+      - key: FRONTEND_ORIGIN
+        sync: false
